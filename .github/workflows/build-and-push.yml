@@ -34,7 +34,7 @@ jobs:
           push: true
           tags: |
             ghcr.io/jobnik-cloud/nextcloud-text:${{ github.sha }}
-            ghcr.io/jobnik-cloud/nextcloud-text:HEAD
+            ghcr.io/jobnik-cloud/nextcloud-text:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
           platforms: linux/amd64
