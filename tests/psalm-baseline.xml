@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files psalm-version="6.13.1@1e3b7f0a8ab32b23197b91107adc0a7ed8a05b51">
+  <file src="lib/Controller/WorkspaceController.php">
+    <UndefinedInterfaceMethod>
+      <code><![CDATA[open]]></code>
+    </UndefinedInterfaceMethod>
+  </file>
+  <file src="lib/DAV/WorkspacePlugin.php">
+    <UndefinedClass>
+      <code><![CDATA[ServerPlugin]]></code>
+    </UndefinedClass>
+  </file>
+  <file src="lib/DirectEditing/TextDirectEditor.php">
+    <UndefinedInterfaceMethod>
+      <code><![CDATA[getToken]]></code>
+    </UndefinedInterfaceMethod>
+  </file>
+  <file src="lib/Service/EncodingService.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[mb_detect_encoding($string, $this->getEncodings(), true)]]></code>
+      <code><![CDATA[mb_detect_order()]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+</files>

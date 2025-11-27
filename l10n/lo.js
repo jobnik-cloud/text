@@ -1,0 +1,26 @@
+OC.L10N.register(
+    "text",
+    {
+    "The file was uploaded" : "ຟາຍຖຶກອັບໂຫລດສຳເລັດ",
+    "No file was uploaded" : "ບໍ່ມີການອັບໂຫລດຟາຍ",
+    "Text" : "ຂໍ້ຄວາມ",
+    "Enter your name" : "ປ້ອນຊື່ຂອງທ່ານ",
+    "Guest" : "ແຂກ",
+    "submit" : "ສົ່ງ",
+    "Copy link" : "ສຳເນົາລິງ",
+    "Remove link" : "ລຶບລິງ",
+    "guest" : "ແຂກ",
+    "Offline" : "ອັອບລາຍ",
+    "Saving …" : "ກຳລັງບັນທຶກ",
+    "Link" : "ລິງ",
+    "Cancel" : "ຍົກເລີກ",
+    "Translate" : "ແປ",
+    "Replace" : "ປ່ຽນແທນ",
+    "Upload" : "ອັບໂຫຼດ",
+    "Edit" : "ແກ້ໄຂ",
+    "Details" : "ລາຍລະອຽດ",
+    "Choose" : "ເລືອກ",
+    "Cannot copy, please copy the link manually" : "ບໍ່ສາມາດສຳເນົາໄດ້, ກະລຸນາສຳເນົາລິງດ້ວຍຕົວເອງ",
+    "Copy link to clipboard" : "ສຳເນົາລິ້ງໃສ່ຄລິບບອດ"
+},
+"nplurals=1; plural=0;");

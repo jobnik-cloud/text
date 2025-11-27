@@ -1,0 +1,70 @@
+/**
+ * SPDX-FileCopyrightText: 2023 Nextcloud GmbH and Nextcloud contributors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+.text-menubar,
+.v-popper__inner {
+	.entry-action__emoji button.entry-action__button {
+		&:hover,
+		&:focus,
+		&:active {
+			background-color: var(--color-background-hover);
+		}
+	}
+
+	button.entry-action__button {
+		height: var(--default-clickable-area);
+		margin: 0;
+		border: 0;
+		// opacity: 0.5;
+		position: relative;
+		background-color: transparent;
+		vertical-align: top;
+		box-shadow: none;
+		padding: 0;
+
+		p {
+			padding: 0;
+		}
+
+		&:is(li.entry-action-item button) {
+			padding: 0 0.5em 0 0;
+		}
+
+		&:not(li.entry-action-item button) {
+			width: var(--default-clickable-area);
+		}
+
+		&:hover,
+		&:focus,
+		&:active {
+			background-color: var(--color-background-dark);
+			&:not(:disabled) {
+				box-shadow: var(--color-primary-element);
+			}
+		}
+
+		&:hover,
+		&:focus {
+			opacity: 1;
+		}
+		&:focus-visible {
+			box-shadow: var(--color-primary-element);
+		}
+	}
+
+	.button-vue {
+		margin-right: 2px;
+	}
+
+	@media only screen and (max-width: 767px) {
+		.button-vue {
+			margin-right: 0;
+		}
+	}
+
+	.action-item__menutoggle.action-item__menutoggle--with-icon-slot {
+		opacity: 1;
+	}
+}
