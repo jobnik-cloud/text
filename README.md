@@ -133,7 +133,7 @@ window.OCA.Text.createEditor({
 	editor.setReadOnly(true)
 	editor.insertAtCursor('<h1>Heading</h1>')
 
-	// Make sure to destory the editor instance once you remove the dom element
+	// Make sure to destroy the editor instance once you remove the dom element
 	editor.destroy()
 })
 ```
@@ -151,7 +151,7 @@ window.OCA.Text.createEditor({
 	editor.setReadOnly(true)
 	editor.insertAtCursor('<h1>Heading</h1>')
 
-	// Make sure to destory the editor instance once you remove the dom element
+	// Make sure to destroy the editor instance once you remove the dom element
 	editor.destroy()
 })
 ```
