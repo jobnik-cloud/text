@@ -155,3 +155,11 @@ window.OCA.Text.createEditor({
 	editor.destroy()
 })
 ```
+
+---
+
+## 😄 Developer Joke
+
+Why do programmers prefer dark mode?
+
+Because light attracts bugs! 🐛💡
