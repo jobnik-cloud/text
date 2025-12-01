@@ -86,7 +86,18 @@ let FilesHeaderRichWorkspaceInstance
 let latestFolder
 
 const enabled = (_, view) => {
-	return ['files', 'favorites', 'public-share'].includes(view.id)
+	// Allow standard views
+	if (['files', 'favorites', 'public-share'].includes(view.id)) {
+		return true
+	}
+	
+	// Allow folder tree root and all its children
+	// Folder tree child views have params.view === 'folders'
+	if (view.id === 'folders' || view.params?.view === 'folders') {
+		return true
+	}
+	
+	return false
 }
 
 export const FilesWorkspaceHeader = new Header({
