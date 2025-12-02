@@ -87,6 +87,7 @@ let latestFolder
 
 const enabled = (_, view) => {
 	return ['files', 'folders', 'favorites', 'public-share'].includes(view.id)
+		|| view.params?.view === 'folders'
 }
 
 export const FilesWorkspaceHeader = new Header({
