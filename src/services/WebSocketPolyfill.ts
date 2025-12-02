@@ -24,14 +24,16 @@ export default function initWebSocketPolyfill(
 		onerror?: (error: Event) => void
 		onclose?: (event: CloseEvent) => void
 		onopen?: () => void
-		#notifyPushBus
-		#onSync
-		#onOpened
-		#processingVersion = 0
+	#notifyPushBus
+	#onSync
+	#onOpened
+	#processingVersion = 0
+	#boundOnNotifyPush?: (data: { messageBody: { documentId: number; steps: string[] } }) => void
 
-		constructor(url: string) {
-			this.#notifyPushBus = getNotifyBus()
-			this.#notifyPushBus?.on('notify_push', this.#onNotifyPush.bind(this))
+	constructor(url: string) {
+		this.#notifyPushBus = getNotifyBus()
+		this.#boundOnNotifyPush = this.#onNotifyPush.bind(this)
+		this.#notifyPushBus?.on('notify_push', this.#boundOnNotifyPush)
 			this.#url = url
 			logger.debug('WebSocketPolyfill#constructor', { url, fileId })
 
@@ -102,12 +104,14 @@ export default function initWebSocketPolyfill(
 			syncService.sendRecoveryStep(step)
 		}
 
-		async close() {
-			syncService.bus.off('sync', this.#onSync)
-			this.#notifyPushBus?.off('notify_push', this.#onNotifyPush.bind(this))
-			this.onclose?.(new CloseEvent('closing'))
-			logger.debug('Websocket closed')
+	async close() {
+		syncService.bus.off('sync', this.#onSync)
+		if (this.#boundOnNotifyPush) {
+			this.#notifyPushBus?.off('notify_push', this.#boundOnNotifyPush)
 		}
+		this.onclose?.(new CloseEvent('closing'))
+		logger.debug('Websocket closed')
+	}
 
 		#onNotifyPush({
 			messageBody,
