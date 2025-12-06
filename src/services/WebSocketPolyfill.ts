@@ -28,10 +28,12 @@ export default function initWebSocketPolyfill(
 		#onSync
 		#onOpened
 		#processingVersion = 0
+		#onNotifyPushBound?: (message: { messageBody: { documentId: number; steps: string[] } }) => void
 
 		constructor(url: string) {
 			this.#notifyPushBus = getNotifyBus()
-			this.#notifyPushBus?.on('notify_push', this.#onNotifyPush.bind(this))
+			this.#onNotifyPushBound = this.#onNotifyPush.bind(this)
+			this.#notifyPushBus?.on('notify_push', this.#onNotifyPushBound)
 			this.#url = url
 			logger.debug('WebSocketPolyfill#constructor', { url, fileId })
 
@@ -104,7 +106,8 @@ export default function initWebSocketPolyfill(
 
 		async close() {
 			syncService.bus.off('sync', this.#onSync)
-			this.#notifyPushBus?.off('notify_push', this.#onNotifyPush.bind(this))
+			this.#notifyPushBus?.off('notify_push', this.#onNotifyPushBound)
+			this.#onNotifyPushBound = undefined
 			this.onclose?.(new CloseEvent('closing'))
 			logger.debug('Websocket closed')
 		}
