@@ -86,7 +86,8 @@ let FilesHeaderRichWorkspaceInstance
 let latestFolder
 
 const enabled = (_, view) => {
-	return ['files', 'favorites', 'public-share'].includes(view.id)
+	const viewIdentifier = view.params?.view || view.id
+	return ['files', 'folders', 'favorites', 'public-share'].includes(viewIdentifier)
 }
 
 export const FilesWorkspaceHeader = new Header({
